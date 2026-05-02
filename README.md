@@ -1,16 +1,42 @@
-# React + Vite
+<!-- @format -->
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React + Vite + Tailwind
 
-Currently, two official plugins are available:
+1. todos
+2. component
+3. props
+4. state
+5. conditional redering
+6. list rendering
+7. userReducer
+8. Context
+9. custom Hook
+10. useRef
+11. useEffect
+12. Fetching data from api {JSON} placeholder
+13. LocalhostStorage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Features
 
-## React Compiler
+1. Add Task
+2. Edit Task
+3. Delete Task
+4. Toggle Task
+5. Filter Tasks
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**UI Stage [Initial Build]**
 
-## Expanding the ESLint configuration
+**1. In App.jsx**
+[todos,setTodos] ---> useState([])
+fetch() ---> useEffect
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**2. Components**
+Header.jsx ---> h1
+TaskInput.jsx ---> input,addBtn
+TaskList.jsx ---> span,doneBtn,deleteBtn,editBtn
+
+**3. In App.jsx**
+create _--->_ addTask function (title parameter, const newTask = object {-->title:title,id: todos[todos.lenght-1].id+1, setTodos([...todos,newTask]))}
+props add _--->_ TaskInput.jsx({addTask})
+[text,setText] _--->_ useState("")
+In input _--->_<input value={text} onchange=(e)=>{setText(e.target.value)}>
