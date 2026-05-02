@@ -77,3 +77,12 @@ Create editTask fun _--->_ editTask = (id,title) =>{const editTask = todos.map((
 6. To show text in span _--->_ {edittingId == task.id ? (<**new input**>) : (<span></span>)}
 7. EditBtn onClick _--->_ onClick={() => {if (edittingId == task.id) {editTask(task.id, text);
    setEdittingId(null);setText("");} else {setEdittingId(task.id);setText(task.title);}}}
+
+**For DeleteBtn in TaskList**
+**1.App.jsx**
+Create delete fun _--->_ const deleteTask = (id) => {const updatedTodos = todos.filter((task)=>task.id != id)}
+
+**2.TaskList.jsx**
+
+1. Add props _--->_ deleteTask
+2. DeleteBtn onClick _--->_ onClick = {()=>{deleteTask(task.id)}}

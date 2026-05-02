@@ -33,20 +33,32 @@ const App = () => {
     setTodos(updatedTodos);
   };
   const editTask = (id, title) => {
-    const updateEditTask = todos.map((task) => {
+    const updatedTodos = todos.map((task) => {
       if (task.id === id) {
         return { ...task, title: title };
       } else {
         return task;
       }
     });
-    setTodos(updateEditTask);
+    setTodos(updatedTodos);
   };
+
+  const deleteTask = (id) => {
+    const updatedTodos = todos.filter((task) => task.id != id);
+    setTodos(updatedTodos);
+  };
+  //user delete လုပ်လိုက်တဲ့ id နဲ့ မညီတာတွေပဲပြပါ
+  // user နှိပ်လိုက်တဲ့ id က လွဲရင် ကျန်တဲ့ id တွေကို ပြပေးပါ
   return (
     <div className='container max-w-2xl mx-auto p-4'>
       <Header />
       <TaskInput addTask={addTask} />
-      <TaskList todos={todos} toggleTask={toggleTask} editTask={editTask} />
+      <TaskList
+        todos={todos}
+        toggleTask={toggleTask}
+        editTask={editTask}
+        deleteTask={deleteTask}
+      />
     </div>
   );
 };

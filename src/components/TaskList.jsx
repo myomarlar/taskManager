@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-const TaskList = ({ todos, toggleTask, editTask }) => {
+const TaskList = ({ todos, toggleTask, editTask, deleteTask }) => {
   const [edittingId, setEdittingId] = useState(null);
   const [text, setText] = useState("");
   return (
@@ -51,7 +51,12 @@ const TaskList = ({ todos, toggleTask, editTask }) => {
             >
               {edittingId == task.id ? "Save" : "Edit"}
             </button>
-            <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'>
+            <button
+              onClick={() => {
+                deleteTask(task.id);
+              }}
+              className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
+            >
               Delete
             </button>
           </div>
