@@ -25,26 +25,21 @@ Features
 5. Filter Tasks
 
 **UI Stage [Initial Build]**
-
 **1. In App.jsx**
-
 [todos,setTodos] ---> useState([])
 fetch() ---> useEffect
-
 **2. Components**
-
 Header.jsx ---> h1
 TaskInput.jsx ---> input,addBtn
 TaskList.jsx ---> span,doneBtn,deleteBtn,editBtn
 
 **For AddBtn inside input**
-**1. In App.jsx**
-
-1. Create addTask fun _--->_ addTask function (title parameter, const newTask = object
-   {-->title:title,id: todos[todos.lenght-1].id+1, setTodos([...todos,newTask]))}
+**App.jsx**
+Create addTask fun _--->_ addTask function (title parameter, const newTask = object
+{-->title:title,id: todos[todos.lenght-1].id+1, setTodos([...todos,newTask]))}
 
 **For Input-- accept new text, get new text, cursor**
-**4. In TaskInput.jsx**
+**TaskInput.jsx**
 
 1. Add props _--->_ TaskInput.jsx({addTask})
    [text,setText] _--->_ useState("")
@@ -57,12 +52,26 @@ TaskList.jsx ---> span,doneBtn,deleteBtn,editBtn
    setTask("");**inputRef.current.focus();**}}
 
 **For DoneBtn in TaskList**
-**1. In App.jsx**
-
+**1.App.jsx**
 Create toggleTask fun _--->_ toggleTask =(id)=>{const updatedTask = todos.map((task)={if(){}})}
 <TaskList toggelTask={toggleTask}>
 
-**2. In TaskList.jsx**
-Add props _--->_ toggeTask
-Add Line-through In input _--->_ className = {`${task.completed ? "line-through" : ""}`}
-In addBtn _--->_ onClick(()=>{toggleTask.id}), Add text change {task.completed? "Completed" : "Undo"}
+**2.TaskList.jsx**
+
+1. Add props _--->_ toggeTask
+2. Add Line-through In input _--->_ className = {`${task.completed ? "line-through" : ""}`}
+3. In addBtn _--->_ onClick(()=>{toggleTask.id}), Add text change {task.completed? "Completed"  
+   :"Undo"}
+
+**For EditBtn in TaskList**
+**1.App.jsx**
+Create editTask fun _--->_ editTask = (id,title) =>{const editTask = todos.map((task)=>{if(){}})}
+
+**2.TaskList.jsx**
+
+1. Add props _--->_ editTask
+2. Editting State _--->_ useState(null)
+3. text State _--->_ useState("")
+4. EditBtn onClick _--->_ onClick={() => {setEdittingId(task.id);setText(task.title);}}
+5. EditBtn in Content _--->_ {edittingId == task.id ? "Save" : "Edit"}
+6. To show text in span _--->_ {edittingId == task.id ? (<**new input**>) : (<span></span>)}

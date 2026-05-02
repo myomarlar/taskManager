@@ -32,12 +32,21 @@ const App = () => {
       setTodos(updatedTodos);
     });
   };
-
+  const editTask = (id, title) => {
+    const updateEditTask = todos.map((task) => {
+      if (task.id === id) {
+        return { ...task, title: title };
+      } else {
+        return task;
+      }
+      setTodos(updateEditTask);
+    });
+  };
   return (
     <div className='container max-w-2xl mx-auto p-4'>
       <Header />
       <TaskInput addTask={addTask} />
-      <TaskList todos={todos} toggleTask={toggleTask} />
+      <TaskList todos={todos} toggleTask={toggleTask} editTask={editTask} />
     </div>
   );
 };
