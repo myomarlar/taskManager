@@ -1,13 +1,15 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const TaskInput = ({ addTask }) => {
   const [text, setText] = useState("");
+  const inputRef = useRef(null);
 
   return (
     <div className='mb-5 flex gap-2'>
       <input
+        ref={inputRef}
         value={text}
         onChange={(e) => {
           setText(e.target.value);
@@ -19,6 +21,8 @@ const TaskInput = ({ addTask }) => {
       <button
         onClick={() => {
           addTask(text);
+          setText("");
+          inputRef.current.focus();
         }}
         className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'
       >

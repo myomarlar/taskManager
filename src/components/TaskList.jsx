@@ -2,18 +2,27 @@
 
 import React, { useState } from "react";
 
-const TaskList = ({ todos }) => {
+const TaskList = ({ todos, toggleTask }) => {
   return (
     <div className='container mx-auto p-4'>
-      {todos.map((todo, index) => (
+      {todos.map((task, index) => (
         <div
           key={index}
           className='flex flex-col sm:flex-row items-center justify-between bg-white shadow-md rounded-lg p-4 mb-2'
         >
-          <span className='text-lg font-medium mb-2 sm:mb-0'>{todo.title}</span>
+          <span
+            className={`text-lg font-medium mb-2 sm:mb-0  ${task.completed ? "line-through" : ""}`}
+          >
+            {task.title}
+          </span>
           <div className='flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2'>
-            <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'>
-              Done
+            <button
+              onClick={() => {
+                toggleTask(task.id);
+              }}
+              className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'
+            >
+              {task.completed ? "Undo" : "Complete"}
             </button>
             <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
               Edit

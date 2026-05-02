@@ -1,0 +1,7 @@
+1. Explain for newTask add 
+=============================
+သင့်ရဲ့ TaskInput component ကနေ addTask(text) ကို ခေါ်တဲ့အခါ App component က todos state ကို update လုပ်ပါတယ်။ 
+
+App component က todos state ပြောင်းလဲသွားတဲ့အတွက် React က အလိုအလျောက် re-render လုပ်ပေးပါတယ်။ 
+
+ဒီ re-render ဖြစ်တဲ့အခါ App component ကနေ <TaskList todos={todos} /> ကို ပြန်လည် render လုပ်ပါတယ်။ todos prop ကို အသစ်ပြောင်းလဲသွားတဲ့အတွက် TaskList component ကလည်း re-render ဖြစ်ပြီး မြောက်များစွာသော map() ကို ခေါ်ပြီး မူလ data တွေနဲ့ အသစ်ထည့်ထားတဲ့ task အားလုံးကို ပြန်ပြီး render လုပ်ပေးပါတယ်။ အဲဒီတုန်းက Done, Edit, Delete button တွေပါ ပါဝင်နေပါတယ်။ 
