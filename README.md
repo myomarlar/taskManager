@@ -40,3 +40,4 @@ create _--->_ addTask function (title parameter, const newTask = object {-->titl
 props add _--->_ TaskInput.jsx({addTask})
 [text,setText] _--->_ useState("")
 In input _--->_<input value={text} onchange=(e)=>{setText(e.target.value)}>
+onClick in addBtn _--->_ <button onClick={()=>{addTask(**text**)}}>
