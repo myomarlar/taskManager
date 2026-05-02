@@ -5,3 +5,16 @@
 App component က todos state ပြောင်းလဲသွားတဲ့အတွက် React က အလိုအလျောက် re-render လုပ်ပေးပါတယ်။ 
 
 ဒီ re-render ဖြစ်တဲ့အခါ App component ကနေ <TaskList todos={todos} /> ကို ပြန်လည် render လုပ်ပါတယ်။ todos prop ကို အသစ်ပြောင်းလဲသွားတဲ့အတွက် TaskList component ကလည်း re-render ဖြစ်ပြီး မြောက်များစွာသော map() ကို ခေါ်ပြီး မူလ data တွေနဲ့ အသစ်ထည့်ထားတဲ့ task အားလုံးကို ပြန်ပြီး render လုပ်ပေးပါတယ်။ အဲဒီတုန်းက Done, Edit, Delete button တွေပါ ပါဝင်နေပါတယ်။ 
+
+2.Explain for Editting onClick
+==================================
+
+onClick အတွင်းက အဆင့်ဆင့်လုပ်ဆောင်ချက်များ:
+
+if (edittingId == task.id): လက်ရှိ task ကို တကယ်ပြင်ဆင်နေပါသလား စစ်ပါတယ်။
+editTask(task.id, text): ပြင်ဆင်နေရင် editTask function ကို ခေါ်ပြီး ပြင်ဆင်ထားတဲ့ text နဲ့ ပြင်ဆင်နေတဲ့ task ရဲ့ id ကို ပို့ပေးပါတယ်။
+setEdittingId(null): ပြင်ဆင်ခြင်းကို ပြီးဆုံးအောင် edittingId ကို null လုပ်ပါတယ်။
+setText(""): ပြင်ဆင်ထားတဲ့ စာသားကို ရှင်းပါတယ်။
+else: ပြင်ဆင်နေခြင်းမဟုတ်ရင် (Edit ကိုနှိပ်တာဖြစ်ရင်)။
+setEdittingId(task.id): ပြင်ဆင်နေတဲ့ task ရဲ့ id ကို edittingId state မှာ သိမ်းပါတယ်။
+setText(task.title): input field ထဲကို လက်ရှိ task ရဲ့ ခေါင်းစဉ်ကို ထည့်ပေးပါတယ်။ 

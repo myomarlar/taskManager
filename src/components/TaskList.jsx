@@ -14,10 +14,10 @@ const TaskList = ({ todos, toggleTask, editTask }) => {
         >
           {edittingId == task.id ? (
             <input
+              className='border border-gray-300 rounded px-3 py-2 flex-1'
               value={text}
               onChange={(e) => {
                 setText(e.target.value);
-                className = "border border-gray-300 rounded px-3 py-2 flex-1";
               }}
             />
           ) : (
@@ -38,8 +38,14 @@ const TaskList = ({ todos, toggleTask, editTask }) => {
             </button>
             <button
               onClick={() => {
-                setEdittingId(task.id);
-                setText(task.title);
+                if (edittingId == task.id) {
+                  editTask(task.id, text);
+                  setEdittingId(null);
+                  setText("");
+                } else {
+                  setEdittingId(task.id);
+                  setText(task.title);
+                }
               }}
               className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
             >

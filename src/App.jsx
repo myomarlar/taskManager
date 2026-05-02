@@ -29,8 +29,8 @@ const App = () => {
       } else {
         return task;
       }
-      setTodos(updatedTodos);
     });
+    setTodos(updatedTodos);
   };
   const editTask = (id, title) => {
     const updateEditTask = todos.map((task) => {
@@ -39,8 +39,8 @@ const App = () => {
       } else {
         return task;
       }
-      setTodos(updateEditTask);
     });
+    setTodos(updateEditTask);
   };
   return (
     <div className='container max-w-2xl mx-auto p-4'>
