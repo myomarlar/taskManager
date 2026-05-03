@@ -1,10 +1,12 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { TaskContext } from "../context/TaskContext";
 
-const TaskList = ({ todos, toggleTask, editTask, deleteTask }) => {
+const TaskList = ({ /*todos,*/ toggleTask, editTask, deleteTask }) => {
   const [edittingId, setEdittingId] = useState(null);
   const [text, setText] = useState("");
+  const { tasks: todos } = useContext(TaskContext);
   return (
     <div className='container mx-auto p-4'>
       {todos.map((task, index) => (

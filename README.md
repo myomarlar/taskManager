@@ -86,3 +86,56 @@ Create delete fun _--->_ const deleteTask = (id) => {const updatedTodos = todos.
 
 1. Add props _--->_ deleteTask
 2. DeleteBtn onClick _--->_ onClick = {()=>{deleteTask(task.id)}}
+
+Work ===> AllBtn, CompleteBtn, UnCompleteBtn
+
+# Done create Task Manager
+
+# Now useReducer
+
+**1.Create folder** _--->_ src --> context folder --> taskReducer.jsx
+**Need to learn**
+
+# useContext
+
+**1.Create folder** _--->_ src --> context folder --> TaskContext.jsx
+**Need to learn** (export not TaskContext ---> TaskProvider)
+**2.App.jsx**
+return <TaskProvider>
+
+<div className='container max-w-2xl mx-auto p-4'>
+        <Header />
+        <TaskInput addTask={addTask} />
+        <TaskList
+          todos={todos}
+          toggleTask={toggleTask}
+          editTask={editTask}
+          deleteTask={deleteTask}
+        />
+      </div>
+    </TaskProvider>
+
+**3.taskReducer.jsx**
+Add _--->_ case "SET_TASK": return action.payload; (this is for all tasks)
+
+**4.TaskContext.jsx**
+**1.Add Use Effect**
+useEffect(() => {
+fetch()
+.then((data) => data.json)
+.then((data) =>
+dispatch({ type: "SET_TASKS", payload: data.slice(0, 10) }),
+);
+},[]);
+
+**2.Add Export in front of**
+export const TaskContext = createContext();
+
+**5.App.jsx**
+**Delete useEffect()**
+**Delete todos,setTodos**  
+**Delete todos={todos}**
+
+**3.Add useContext in TaskList.jsx**
+Add useContext _--->_ const { tasks: todos } = useContext(TaskContext);
+Delete todos props _--->_
