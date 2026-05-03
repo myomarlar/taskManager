@@ -6,10 +6,10 @@ import { TaskContext } from "../context/TaskContext";
 const TaskList = ({ /*todos,*/ toggleTask, editTask, deleteTask }) => {
   const [edittingId, setEdittingId] = useState(null);
   const [text, setText] = useState("");
-  const { tasks: todos } = useContext(TaskContext);
+  const { tasks } = useContext(TaskContext);
   return (
     <div className='container mx-auto p-4'>
-      {todos.map((task, index) => (
+      {tasks.map((task, index) => (
         <div
           key={index}
           className='flex flex-col sm:flex-row items-center justify-between bg-white shadow-md rounded-lg p-4 mb-2'

@@ -1,1 +1,12 @@
 https://chatgpt.com/share/69f6c446-bf2c-8321-a90a-e75b8fd2b0be
+
+useEffect → goes to supermarket (fetch data)
+dispatch → brings groceries home
+taskReducer → decides where to put them
+tasks → final stored food
+✅ Final correct understanding
+
+✔ useEffect fetches data
+✔ dispatch sends it to reducer
+✔ taskReducer updates state
+✔ tasks receives the updated result
