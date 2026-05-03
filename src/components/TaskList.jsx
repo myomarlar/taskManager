@@ -65,7 +65,7 @@ const TaskList = ({ /*todos,*/ toggleTask, editTask, deleteTask }) => {
         </div>
       ))}
 
-      {todos.length === 0 && (
+      {tasks.length === 0 && (
         <div className='text-center text-gray-500 text-lg'>
           No tasks yet. Add one to get started
         </div>

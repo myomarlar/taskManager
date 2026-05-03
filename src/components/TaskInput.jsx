@@ -1,11 +1,22 @@
 /** @format */
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
+import { TaskContext } from "../context/TaskContext";
 
-const TaskInput = ({ addTask }) => {
+const TaskInput = (/*{ addTask }*/) => {
   const [text, setText] = useState("");
   const inputRef = useRef(null);
+  const { dispatch } = useContext(TaskContext);
 
+  const addTask = () => {
+    if (text.trim() == "") return;
+    dispatch({
+      type: "ADD_TASK",
+      payload: { id: Date.now(), title: text, completed: false },
+    });
+    setText("");
+    inputRef.current.focus();
+  };
   return (
     <div className='mb-5 flex gap-2'>
       <input
@@ -20,9 +31,10 @@ const TaskInput = ({ addTask }) => {
       />
       <button
         onClick={() => {
-          addTask(text);
-          setText("");
-          inputRef.current.focus();
+          addTask();
+          // addTask(text);
+          // setText("");
+          // inputRef.current.focus();
         }}
         className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'
       >

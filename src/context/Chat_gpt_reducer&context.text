@@ -10,3 +10,22 @@ tasks → final stored food
 ✔ dispatch sends it to reducer
 ✔ taskReducer updates state
 ✔ tasks receives the updated result
+
+✔  useEffect fetches data
+✔  dispatch sends action
+✔  taskReducer returns new state
+✔  tasks gets updated (inside TaskProvider)
+✔  TaskList reads and displays it
+✔  🧠 Simple analogy
+✔  TaskProvider → database (stores data)
+✔  TaskContext → delivery system
+✔  TaskList → screen (just shows data)
+
+const [tasks, dispatch] = useReducer(taskReducer, []);
+
+tasks → holds the state data (current state)
+dispatch → sends an action
+taskReducer → decides how to update the state and returns new state
+[] → initial state (empty array at the start)
+
+👉 dispatch sends an action → reducer processes it → tasks gets updated → UI re-renders

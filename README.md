@@ -137,5 +137,10 @@ export const TaskContext = createContext();
 **Delete todos={todos}**
 
 **3.Add useContext in TaskList.jsx**
-Add useContext _--->_ const { tasks: todos } = useContext(TaskContext);
+Add useContext _--->_ const { tasks } = useContext(TaskContext);
 Delete todos props _--->_
+
+**4.TaskInput.jsx**
+**Add addTask function**
+**Delete// addTask(text); setText(""); inputRef.current.focus();**
+Add dispatch _--->_ const { dispatch } = useContext(TaskContext);
