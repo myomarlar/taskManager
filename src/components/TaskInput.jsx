@@ -2,11 +2,13 @@
 
 import React, { useState, useRef, useContext } from "react";
 import { TaskContext } from "../context/TaskContext";
+import useTasks from "../hooks/useTasks";
 
 const TaskInput = (/*{ addTask }*/) => {
   const [text, setText] = useState("");
   const inputRef = useRef(null);
-  const { dispatch } = useContext(TaskContext);
+  // const { dispatch } = useContext(TaskContext);
+  const { dispatch } = useTasks(TaskContext);
 
   const addTask = () => {
     if (text.trim() == "") return;

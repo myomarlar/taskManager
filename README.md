@@ -145,4 +145,12 @@ Delete todos props _--->_
 **Delete// addTask(text); setText(""); inputRef.current.focus();**
 Add dispatch _--->_ const { dispatch } = useContext(TaskContext);
 
-**Create hooks Folder and useTask File in src**
+**5.Create hooks Folder and useTasks File in src**
+
+**6.TaskInput.jsx**
+**Use useTasks**
+Delete const { dispatch } = useContext(TaskContext);
+Add const { dispatch } = useTasks(TaskContext);
+
+**7.TaskList.jsx**
+**Make Edit,Toggle,Delete function**

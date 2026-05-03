@@ -3,7 +3,7 @@
 import React, { useContext, useState } from "react";
 import { TaskContext } from "../context/TaskContext";
 
-const TaskList = ({ /*todos,*/ toggleTask, editTask, deleteTask }) => {
+const TaskList = (/*{ todos, toggleTask, editTask, deleteTask }*/) => {
   const [edittingId, setEdittingId] = useState(null);
   const [text, setText] = useState("");
   const { tasks } = useContext(TaskContext);
