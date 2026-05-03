@@ -150,7 +150,9 @@ Add dispatch _--->_ const { dispatch } = useContext(TaskContext);
 **6.TaskInput.jsx**
 **Use useTasks**
 Delete const { dispatch } = useContext(TaskContext);
-Add const { dispatch } = useTasks(TaskContext);
+Add const { dispatch } = useTasks();
 
 **7.TaskList.jsx**
 **Make Edit,Toggle,Delete function**
+Add const { tasks, dispatch } = useTask();
+Add in Toggle onClick _--->_ dispatch({ type: "TOGGLE_TASK", payload: task.id });

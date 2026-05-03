@@ -8,7 +8,7 @@ const TaskInput = (/*{ addTask }*/) => {
   const [text, setText] = useState("");
   const inputRef = useRef(null);
   // const { dispatch } = useContext(TaskContext);
-  const { dispatch } = useTasks(TaskContext);
+  const { dispatch } = useTasks();
 
   const addTask = () => {
     if (text.trim() == "") return;

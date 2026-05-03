@@ -2,11 +2,13 @@
 
 import React, { useContext, useState } from "react";
 import { TaskContext } from "../context/TaskContext";
+import useTasks from "../hooks/useTasks";
 
 const TaskList = (/*{ todos, toggleTask, editTask, deleteTask }*/) => {
   const [edittingId, setEdittingId] = useState(null);
   const [text, setText] = useState("");
-  const { tasks } = useContext(TaskContext);
+  // const { tasks } = useContext(TaskContext);
+  const { tasks, dispatch } = useTasks();
   return (
     <div className='container mx-auto p-4'>
       {tasks.map((task, index) => (
@@ -32,7 +34,8 @@ const TaskList = (/*{ todos, toggleTask, editTask, deleteTask }*/) => {
           <div className='flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2'>
             <button
               onClick={() => {
-                toggleTask(task.id);
+                // toggleTask(task.id);
+                dispatch({ type: "TOGGLE_TASK", payload: task.id });
               }}
               className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'
             >
@@ -41,7 +44,11 @@ const TaskList = (/*{ todos, toggleTask, editTask, deleteTask }*/) => {
             <button
               onClick={() => {
                 if (edittingId == task.id) {
-                  editTask(task.id, text);
+                  dispatch({
+                    type: "EDIT_TASK",
+                    payload: { id: task.id, text: text },
+                  });
+                  // editTask(task.id, text);
                   setEdittingId(null);
                   setText("");
                 } else {
@@ -55,7 +62,8 @@ const TaskList = (/*{ todos, toggleTask, editTask, deleteTask }*/) => {
             </button>
             <button
               onClick={() => {
-                deleteTask(task.id);
+                // deleteTask(task.id);
+                dispatch({ type: "DELETE_TASK", payload: task.id });
               }}
               className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
             >
